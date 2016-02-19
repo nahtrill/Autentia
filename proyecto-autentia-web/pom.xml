@@ -15,7 +15,6 @@
     <name>proyecto-autentia-web</name>
 
     <properties>
-        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -26,9 +25,21 @@
             <version>6.0</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+        	<groupId>cl.tinet.trainee</groupId>
+        	<artifactId>proyecto-autentia-model</artifactId>
+        	<version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+        	<groupId>cl.tinet.trainee</groupId>
+        	<artifactId>proyecto-autentia-ejb</artifactId>
+        	<version>1.0-SNAPSHOT</version>
+        	<type>ejb</type>
+        </dependency>
     </dependencies>
 
     <build>
+		<pluginManagement>    
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -38,7 +49,6 @@
                     <source>1.6</source>
                     <target>1.6</target>
                     <compilerArguments>
-                        <endorseddirs>${endorsed.dir}</endorseddirs>
                     </compilerArguments>
                 </configuration>
             </plugin>
@@ -61,7 +71,6 @@
                             <goal>copy</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${endorsed.dir}</outputDirectory>
                             <silent>true</silent>
                             <artifactItems>
                                 <artifactItem>
@@ -76,6 +85,7 @@
                 </executions>
             </plugin>
         </plugins>
+		</pluginManagement>        
     </build>
 
 </project>
